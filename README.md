@@ -150,3 +150,62 @@ N50: 3880382
 ____
 
 ###  Бонус
+
+С помощью аналогичных команд получены еще 2 сборки. Первая использует в 2 раза меньше чтений(2500000 PE, 750000 MP), чем исходная(5000000 PE, 1500000 MP), вторая - в 4 раза меньше чтений(1250000 PE, 375000 MP).
+
+____
+
+### В 2 раза меньше чтений
+
+Скриншоты и статистика из файлов multiQC:
+
+[Неподрезанные чтения](bonus/half/html_reports/multiqc_report.html)
+
+![multiqc1](bonus/half/screenshots/multiqc21.jpg)
+![multiqc2](bonus/half/screenshots/multiqc22.jpg)
+![multiqc3](bonus/half/screenshots/multiqc23.jpg)
+
+[Подрезанные чтения](bonus/half/html_reports/multiqc_trimmed_report.html)
+
+![multiqc_trimmed1](bonus/half/screenshots/multiqc_trimmed21.jpg)
+![multiqc_trimmed2](bonus/half/screenshots/multiqc_trimmed22.jpg)
+![multiqc_trimmed3](bonus/half/screenshots/multiqc_trimmed23.jpg)
+
+[Jupiter-ноутбук](bonus/half/src/analysis_of_contigs_and_scaffolds.ipynb)
+
+____
+
+### В 4 раза меньше чтений
+
+Скриншоты и статистика из файлов multiQC:
+
+[Неподрезанные чтения](bonus/quarter/html_reports/multiqc_report.html)
+
+![multiqc1](bonus/quarter/screenshots/multiqc41.jpg)
+![multiqc2](bonus/quarter/screenshots/multiqc42.jpg)
+![multiqc3](bonus/quarter/screenshots/multiqc43.jpg)
+
+[Подрезанные чтения](bonus/quarter/html_reports/multiqc_trimmed_report.html)
+
+![multiqc_trimmed1](bonus/quarter/screenshots/multiqc_trimmed41.jpg)
+![multiqc_trimmed2](bonus/quarter/screenshots/multiqc_trimmed42.jpg)
+![multiqc_trimmed3](bonus/quarter/screenshots/multiqc_trimmed43.jpg)
+
+[Jupiter-ноутбук](bonus/quarter/src/analysis_of_contigs_and_scaffolds.ipynb)
+
+____
+
+| Параметр | Исходная сборка | В 2 раза меньше чтений | В 4 раза меньше чтений|
+|----------|:---------------:|-----------------------:|----------------------:|
+| Общее количество контигов |613 |719 |972 |
+| Общая длина контигов |3925649 |3925446 |3916798 |
+| Длина самого длинного контига |179307 |232786 |259998 |
+| N50 контигов|47993 |75466 |81116 |
+| Общее количество скаффолдов |65 |81 |120 |
+| Общая длина скаффолдов |3921655 |3891128 |3865401 |
+| Длина самого длинного скаффолда |3880382 |2105578 |2088042 |
+| N50 скаффолдов|3880382 |2105578 |2088042 |
+| Количество гэпов самого длинного скаффолда |9 |11 |21 |
+| Общая длина гэпов самого длинного скаффолда |1647 |2875 |5202 |
+
+При уменьшении количества данных качество сборки падает. Общее количество контигов и скаффолдов растет, длина самого длинного скаффолда и N50 для скаффолдов уменьшаются, количество и общая длина гэпов самого длинного скаффолда растут.
