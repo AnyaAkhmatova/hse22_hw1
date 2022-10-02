@@ -30,38 +30,38 @@ seqtk sample -s927 oilMP_S4_L001_R2_001.fastq 1500000 > sample_mate_pairs_oilMP_
 С помощью программ fastQC и multiQC оцениваем качество исходных чтений и получаем по ним общую статистику:
 ```
 mkdir fastqc
-fastqc -o fastqc sample_pair_end_oil_R1.fastq, sample_pair_end_oil_R2.fastq, sample_mate_pairs_oilMP_S4_L001_R1_001.fastq, sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
+fastqc -o fastqc sample_pair_end_oil_R1.fastq sample_pair_end_oil_R2.fastq sample_mate_pairs_oilMP_S4_L001_R1_001.fastq sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
 mkdir multiqc
 multiqc -o multiqc fastqc
 ```
 
 Подрезаем чтения по качеству и удаляем адаптеры:
 ```
-platanus_trim sample_pair_end_oil_R1.fastq, sample_pair_end_oil_R2.fastq
-platanus_internal_trim sample_mate_pairs_oilMP_S4_L001_R1_001.fastq, sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
+platanus_trim sample_pair_end_oil_R1.fastq sample_pair_end_oil_R2.fastq
+platanus_internal_trim sample_mate_pairs_oilMP_S4_L001_R1_001.fastq sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
 ```
 
 С помощью программ fastQC и multiQC оцениваем качество подрезанных чтений и получаем по ним общую статистику:
 ```
 mkdir fastqc_trimmed
-fastqc -o fastqc_trimmed sample_pair_end_oil_R1.fastq.trimmed, sample_pair_end_oil_R2.fastq.trimmed, sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed, sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed
+fastqc -o fastqc_trimmed sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed
 mkdir multiqc_trimmed
 multiqc -o multiqc_trimmed fastqc_trimmed
 ```
 
 Собираем контиги из подрезанных чтений:
 ```
-platanus assemble –o Oil –f sample_pair_end_oil_R1.fastq.trimmed, sample_pair_end_oil_R2.fastq.trimmed 2> assemble.log
+platanus assemble –o Oil –f sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed 2> assemble.log
 ```
 
 Cобираем скаффолды из контигов, а также из подрезанных чтений:
 ```
-platanus scaffold –o Oil –c Oil_contig.fa -IP1 sample_pair_end_oil_R1.fastq.trimmed, sample_pair_end_oil_R2.fastq.trimmed -OP2 sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed, sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> scaffold.log
+platanus scaffold –o Oil –c Oil_contig.fa -IP1 sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed -OP2 sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> scaffold.log
 ```
 
 Уменьшаем количетво гэпов с помощью подрезанных чтений:
 ```
-platanus gap_close –o Oil –c Oil_scaffold.fa -IP1 sample_pair_end_oil_R1.fastq.trimmed, sample_pair_end_oil_R2.fastq.trimmed -OP2 sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed, sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> gapclose.log
+platanus gap_close –o Oil –c Oil_scaffold.fa -IP1 sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed -OP2 sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> gapclose.log
 ```
 ____
 
