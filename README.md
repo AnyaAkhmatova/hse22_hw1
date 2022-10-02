@@ -69,15 +69,15 @@ ____
 
 Исходные чтения
 
-![multiqc1](screenshots/multiqc1.jpg)
-![multiqc2](screenshots/multiqc2.jpg)
-![multiqc3](screenshots/multiqc3.jpg)
+![multiqc1](fastqc_multiqc_and_screenshots/multiqc1.jpg)
+![multiqc2](fastqc_multiqc_and_screenshots/multiqc2.jpg)
+![multiqc3](fastqc_multiqc_and_screenshots/multiqc3.jpg)
 
 Подрезанные чтения
 
-![multiqc_trimmed1](screenshots/multiqc_trimmed1.jpg)
-![multiqc_trimmed2](screenshots/multiqc_trimmed2.jpg)
-![multiqc_trimmed3](screenshots/multiqc_trimmed3.jpg)
+![multiqc_trimmed1](fastqc_multiqc_and_screenshots/multiqc_trimmed1.jpg)
+![multiqc_trimmed2](fastqc_multiqc_and_screenshots/multiqc_trimmed2.jpg)
+![multiqc_trimmed3](fastqc_multiqc_and_screenshots/multiqc_trimmed3.jpg)
 
 ____
 
