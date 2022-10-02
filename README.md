@@ -41,6 +41,11 @@ platanus_trim sample_pair_end_oil_R1.fastq sample_pair_end_oil_R2.fastq
 platanus_internal_trim sample_mate_pairs_oilMP_S4_L001_R1_001.fastq sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
 ```
 
+Удаляем исходные .fastq файлы, полученные с помощью программы seqtk:
+```
+rm -rf sample_pair_end_oil_R1.fastq sample_pair_end_oil_R2.fastq sample_mate_pairs_oilMP_S4_L001_R1_001.fastq sample_mate_pairs_oilMP_S4_L001_R2_001.fastq
+```
+
 С помощью программ fastQC и multiQC оцениваем качество подрезанных чтений и получаем по ним общую статистику:
 ```
 mkdir fastqc_trimmed
@@ -63,21 +68,27 @@ platanus scaffold –o Oil –c Oil_contig.fa -IP1 sample_pair_end_oil_R1.fastq.
 ```
 platanus gap_close –o Oil –c Oil_scaffold.fa -IP1 sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed -OP2 sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> gapclose.log
 ```
+ 
+Удаляем  .fastq файлы, содержащие подрезанные чтения:
+```
+rm -rf sample_pair_end_oil_R1.fastq.trimmed sample_pair_end_oil_R2.fastq.trimmed sample_mate_pairs_oilMP_S4_L001_R1_001.fastq.int_trimmed sample_mate_pairs_oilMP_S4_L001_R2_001.fastq.int_trimmed
+```
+
 ____
 
 ### Скриншоты и статистика из файлов multiQC:
 
-[Исходные чтения](fastqc_multiqc_and_screenshots/multiqc_report.html)
+[Исходные чтения](html_reports/multiqc_report.html)
 
-![multiqc1](fastqc_multiqc_and_screenshots/multiqc1.jpg)
-![multiqc2](fastqc_multiqc_and_screenshots/multiqc2.jpg)
-![multiqc3](fastqc_multiqc_and_screenshots/multiqc3.jpg)
+![multiqc1](screenshots/multiqc1.jpg)
+![multiqc2](screenshots/multiqc2.jpg)
+![multiqc3](screenshots/multiqc3.jpg)
 
-[Подрезанные чтения](fastqc_multiqc_and_screenshots/multiqc_trimmed_report.html)
+[Подрезанные чтения](html_reports/multiqc_trimmed_report.html)
 
-![multiqc_trimmed1](fastqc_multiqc_and_screenshots/multiqc_trimmed1.jpg)
-![multiqc_trimmed2](fastqc_multiqc_and_screenshots/multiqc_trimmed2.jpg)
-![multiqc_trimmed3](fastqc_multiqc_and_screenshots/multiqc_trimmed3.jpg)
+![multiqc_trimmed1](screenshots/multiqc_trimmed1.jpg)
+![multiqc_trimmed2](screenshots/multiqc_trimmed2.jpg)
+![multiqc_trimmed3](screenshots/multiqc_trimmed3.jpg)
 
 ____
 
