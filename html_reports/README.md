@@ -1,1 +1,0 @@
-fastQC/multiQC reports
