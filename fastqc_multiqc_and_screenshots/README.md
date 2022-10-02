@@ -1,1 +1,0 @@
-Статистика fastQC/multiQC.
